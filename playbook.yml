@@ -1,0 +1,11 @@
+---
+- hosts: all
+  sudo: yes
+  roles:
+   - android-java
+  tasks:
+    - name: add android studio repo
+      apt_repository: repo='ppa:paolorotolo/android-studio'
+    - name: install android studio
+      apt: name=android-studio update_cache=yes state=present
+      sudo: yes
